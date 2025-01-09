@@ -1,0 +1,429 @@
+{
+	"info": {
+		"_postman_id": "f48d080f-0a3d-45df-87d1-639f3472b947",
+		"name": "awesome",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1742422"
+	},
+	"item": [
+		{
+			"name": "GET /api/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/blogs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/blogs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/comments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post /api/authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var http_reponse_code = pm.variables.get(\"http_reponse_code\")\r",
+							"\r",
+							"pm.test(\"Status code check\", function () {\r",
+							"    pm.response.to.have.status(http_reponse_code);\r",
+							"});\r",
+							"\r",
+							"var cookie = pm.cookies\r",
+							"console.log(cookie)\r",
+							"var cookie_value = cookie.get(\"awesession\")\r",
+							"pm.environment.set(\"cookie_value\", cookie_value)\r",
+							"\r",
+							"var headers = pm.response.headers\r",
+							"console.log(headers)\r",
+							"console.log(headers.get(\"Server\"))\r",
+							"console.log(headers.get(\"Set-Cookie\")) //头 不区分大小写\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{email}}\",\"passwd\":\"{{passwd}}\"}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/authenticate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post /api/authenticate-pw incorrect·",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var http_reponse_code = pm.variables.get(\"http_reponse_code\")\r",
+							"\r",
+							"pm.test(\"Status code check\", function () {\r",
+							"    pm.response.to.have.status(http_reponse_code);\r",
+							"});\r",
+							"\r",
+							"var cookie = pm.cookies\r",
+							"console.log(cookie)\r",
+							"var cookie_value = cookie.get(\"awesession\")\r",
+							"pm.environment.set(\"cookie_value\", cookie_value)\r",
+							"\r",
+							"var headers = pm.response.headers\r",
+							"console.log(headers)\r",
+							"console.log(headers.get(\"Server\"))\r",
+							"console.log(headers.get(\"Set-Cookie\")) //头 不区分大小写\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{email}}\",\"passwd\":\"8888\"}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/authenticate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/blogs-创建日志",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 直接从响应中获取解析后的JSON对象  \r",
+							"var jsonData = pm.response.json();  \r",
+							"  \r",
+							"// 从JSON对象中获取token值  \r",
+							"var blog_id = jsonData.id;  \r",
+							"  \r",
+							"// 将token值设置到环境变量中  \r",
+							"pm.environment.set(\"blog_id\", blog_id);\r",
+							"\r",
+							"pm.test(\"Your test name is chai\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.user_name).to.eql(\"chai\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const echoPostRequest = {\r",
+							"    url:'http://127.0.0.1:9000/api/authenticate',\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"            \"Content-Type\": \"application/json\"\r",
+							"        },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({\"email\":\"chai@excample.com\",\"passwd\":\"daccf256f725ed4205357e24a877a00b77abce77\"})\r",
+							"        }\r",
+							"};\r",
+							"pm.sendRequest(echoPostRequest, function (err, response) {\r",
+							"    console.log(err ? err : response.json());\r",
+							"});\r",
+							"\r",
+							"function generateString(length) {\r",
+							"    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}:\"<>?[];\\',./~`-|';  \r",
+							"    let result = '';  \r",
+							"    const charactersLength = characters.length\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							"var today = new Date();\r",
+							"var dd = String(today.getDate()).padStart(2, '0');\r",
+							"var mm = String(today.getMonth() + 1).padStart(2, '0');\r",
+							"var yyyy = today.getFullYear();\r",
+							"\r",
+							"today = yyyy + '-' + mm + '-' + dd;\r",
+							"summary = \"test \" + today;\r",
+							"content = generateString(10);\r",
+							"\r",
+							"// 将日期存储到环境变量中，以便在请求体中使用\r",
+							"pm.environment.set(\"currentDate\", today);\r",
+							"pm.environment.set(\"summary\", summary);\r",
+							"pm.environment.set(\"content\", content);\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"{{currentDate}}\", \"summary\": \"{{summary}}\", \"content\": \"{{content}}\"}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/blogs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/blogs/:blog_id/comments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\":\"{{$guid}}\"}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/blogs/{{blog_id}}/comments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"blogs",
+						"{{blog_id}}",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /signout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/signout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"signout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"Response time is less than 200ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:9000",
+			"type": "string"
+		}
+	]
+}
